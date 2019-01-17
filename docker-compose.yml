@@ -8,3 +8,5 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
+    environment:
+      - PORT=3000

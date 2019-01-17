@@ -5,6 +5,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 app.listen(port, () => {
   console.log(`Micro-service on port ${port}`)
@@ -15,8 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/hello/:slug', (req, res) => {
-  const {slug} = req.params
-  res.send(`Hello ${slug}`)
+  res.send(`Hello ${req.params.slug}`)
 })
 
 app.post('/post', (req, res) => {
